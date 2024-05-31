@@ -4,6 +4,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
 @NgModule({
   declarations: [],
   imports: [CommonModule],
@@ -12,6 +13,7 @@ import { MatButtonModule } from '@angular/material/button';
     MatBadgeModule,
     MatButtonModule,
     MatIconModule,
+    MatCardModule,
   ],
 })
 export class MaterialConfigModule {}
