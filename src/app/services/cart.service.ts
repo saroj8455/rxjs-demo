@@ -7,6 +7,9 @@ import { BehaviorSubject } from 'rxjs';
 export class CartService {
   private centralGreetMessage = new BehaviorSubject<string>('Hi 😎');
 
+  private cartCount = new BehaviorSubject<number>(0);
+  cartItems: any[] = [];
+
   constructor() {}
 
   setCentralMsg(params: string) {
@@ -15,5 +18,14 @@ export class CartService {
 
   getCentralMsg() {
     return this.centralGreetMessage.asObservable();
+  }
+
+  setCartCount() {
+    this.cartItems.push('Hi');
+    this.cartCount.next(this.cartItems.length);
+  }
+
+  getCartCount() {
+    return this.cartCount.asObservable();
   }
 }

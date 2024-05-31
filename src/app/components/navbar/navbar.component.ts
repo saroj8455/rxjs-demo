@@ -12,8 +12,13 @@ import { CartService } from '../../services/cart.service';
 export class NavbarComponent implements OnInit {
   private cartService = inject(CartService);
 
+  count = 0;
+
   ngOnInit(): void {
     this.initCentralMsg();
+    this.cartService.getCartCount().subscribe((count) => {
+      this.count = count;
+    });
   }
 
   initCentralMsg() {

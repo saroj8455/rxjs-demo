@@ -26,6 +26,17 @@ export class AppComponent implements OnInit, OnDestroy {
     this.cartService.getCentralMsg().subscribe((msg) => {
       this.message = msg;
     });
+    this.pushCartItem();
+  }
+
+  pushCartItem() {
+    const intervalPeriod = 2000;
+    const intervalId = setInterval(() => {
+      this.cartService.setCartCount();
+      setTimeout(() => {
+        clearInterval(intervalId);
+      }, 10000);
+    }, intervalPeriod);
   }
 
   toggleBadgeVisibility() {
