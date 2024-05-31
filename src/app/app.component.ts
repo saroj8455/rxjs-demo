@@ -4,11 +4,22 @@ import { ConfigModule } from './config/config.module';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { MaterialConfigModule } from './material-config/material-config.module';
 import { CartService } from './services/cart.service';
+import { TopnavComponent } from './topnav/topnav.component';
+import { DatatableComponent } from './datatable/datatable.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, ConfigModule, MaterialConfigModule, NavbarComponent],
+  imports: [
+    RouterOutlet,
+    ConfigModule,
+    MaterialConfigModule,
+    NavbarComponent,
+    TopnavComponent,
+    DatatableComponent,
+    DashboardComponent,
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
