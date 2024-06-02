@@ -1,1 +1,50 @@
-<p>home works!</p>
+<div class="grid-container p-5">
+  <h1 class="mat-h1">RxJS Filter</h1>
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Filter RxJS</mat-card-title>
+      <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="py-5">
+        <div>
+          <form class="example-form">
+            <mat-form-field class="w-full">
+              <mat-label>Search Text Here</mat-label>
+              <input
+                type="text"
+                matInput
+                [formControl]="textControl"
+                placeholder="Ex. Username,Email"
+              />
+              <mat-hint>Errors appear instantly!</mat-hint>
+            </mat-form-field>
+          </form>
+        </div>
+        <!-- handel api with async pipe -->
+        <!-- <div class="py-2" *ngIf="users$ | async as users">
+          <mat-list role="list">
+            @for (user of users; track user) {
+            <mat-list-item role="listitem">{{
+              user.name.firstname
+            }}</mat-list-item>
+            }
+          </mat-list>
+        </div> -->
+        <!-- handel api with async pipe -->
+
+        <div class="py-2">
+          <mat-list role="list">
+            @for (user of userList; track user) {
+            <mat-list-item role="listitem">{{
+              user.name.firstname
+            }}</mat-list-item>
+            <!-- <mat-list-item role="listitem">Item 2</mat-list-item>
+            <mat-list-item role="listitem">Item 3</mat-list-item> -->
+            }
+          </mat-list>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

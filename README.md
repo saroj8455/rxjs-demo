@@ -8,6 +8,14 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 `https://www.techiediaries.com/angular-rxjs-tutorial/`
 
+## rxjs operator
+
+`https://www.tektutorialshub.com/angular/debouncetime-debounce-in-angular/`
+
+## rxjs map,filter,input params
+
+`https://medium.com/@pudalepramod/commonly-used-rxjs-features-with-reactive-forms-3e072b14a9f4`
+
 # return a custom type using rxjs pipe
 
 ```ts

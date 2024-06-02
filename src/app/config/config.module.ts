@@ -1,5 +1,11 @@
 import { NgModule } from '@angular/core';
-import { AsyncPipe, CommonModule, NgFor, NgIf } from '@angular/common';
+import {
+  AsyncPipe,
+  CommonModule,
+  JsonPipe,
+  NgFor,
+  NgIf,
+} from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -10,6 +16,7 @@ import { HttpClientModule } from '@angular/common/http';
     AsyncPipe,
     NgIf,
     NgFor,
+    JsonPipe,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
