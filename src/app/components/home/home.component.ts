@@ -70,9 +70,21 @@ export class HomeComponent implements OnInit, OnDestroy {
   );
 
   ngOnInit(): void {
+    // filter only
+
+    this.http
+      .get<User[]>('https://fakestoreapi.com/users')
+      .pipe(filter(Boolean))
+      .subscribe((resp) => {
+        console.log('filter only', resp);
+      });
+
+    // input params with api call
     this.obs = this.textControl.valueChanges
       .pipe(
-        debounceTime(1000),
+        // prevent api call or stop execution when input params is empty filter(v=>!!v)
+        filter(Boolean),
+        debounceTime(500),
         distinctUntilChanged(),
         switchMap((val) => this.getSearchResults(val))
       )
