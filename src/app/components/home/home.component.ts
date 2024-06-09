@@ -12,6 +12,7 @@ import {
   switchMap,
   tap,
 } from 'rxjs';
+import { ProductService } from '../../services/product.service';
 export interface User {
   address: Address;
   id: number;
@@ -55,6 +56,11 @@ export class HomeComponent implements OnInit, OnDestroy {
   private http = inject(HttpClient);
   private obs!: Subscription;
 
+  // declarative pattern
+  private productService = inject(ProductService);
+  products$ = this.productService.products$;
+  product$ = this.productService.product$;
+
   users$ = this.http.get('https://fakestoreapi.com/users').pipe(
     debounceTime(1000),
     distinctUntilChanged(),
@@ -70,6 +76,11 @@ export class HomeComponent implements OnInit, OnDestroy {
   );
 
   ngOnInit(): void {
+    // retrive single product by id from dummy json
+    // this.productService.product$.subscribe((resp) => {
+    //   console.log(resp);
+    // });
+
     // filter only
 
     this.http
@@ -86,7 +97,7 @@ export class HomeComponent implements OnInit, OnDestroy {
         filter(Boolean),
         debounceTime(500),
         distinctUntilChanged(),
-        switchMap((val) => this.getSearchResults(val))
+        switchMap((username) => this.getSearchResults(username))
       )
       .subscribe((v) => {
         // debugger;
@@ -120,5 +131,9 @@ export class HomeComponent implements OnInit, OnDestroy {
       // convert any object resp to an array
       this.userList = resp as User[];
     });
+  }
+
+  checkItem(id: number) {
+    this.productService.setProductId(id);
   }
 }

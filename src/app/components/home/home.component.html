@@ -48,3 +48,80 @@
     </mat-card-content>
   </mat-card>
 </div>
+
+<section class="single__product">
+  <div
+    class="grid-container md:w-30rem sm:w-full p-5"
+    *ngIf="product$ | async as product"
+  >
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>{{ product.title }}</mat-card-title>
+        <mat-card-subtitle>{{ product.category }}</mat-card-subtitle>
+      </mat-card-header>
+      <img
+        mat-card-image
+        [src]="product.thumbnail"
+        alt="Photo of a Shiba Inu"
+      />
+      <mat-card-content>
+        <div class="py-5">
+          <p>
+            {{ product.description }}
+          </p>
+          <div class="py-2">
+            <!-- <mat-list role="list">
+              @for (user of userList; track user) {
+              <mat-list-item role="listitem">{{
+                user.name.firstname
+              }}</mat-list-item>
+              <
+              }
+            </mat-list> -->
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</section>
+
+<section>
+  <div class="grid-container p-5">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title
+          >Declarative pattern to retrive data from API</mat-card-title
+        >
+        <mat-card-subtitle>switchMap operator</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="py-5">
+          <div></div>
+          <!-- handel api with async pipe -->
+          <!-- <div class="py-2" *ngIf="users$ | async as users">
+            <mat-list role="list">
+              @for (user of users; track user) {
+              <mat-list-item role="listitem">{{
+                user.name.firstname
+              }}</mat-list-item>
+              }
+            </mat-list>
+          </div> -->
+          <!-- handel api with async pipe -->
+
+          <div class="py-2" *ngIf="products$ | async as products">
+            <mat-list role="list">
+              @for (prod of products; track prod) {
+              <mat-list-item role="listitem" (click)="checkItem(prod.id)">
+                <div class="bg-pink-500 py-2">
+                  {{ prod.id }} : {{ prod.title }}
+                </div></mat-list-item
+              >
+              }
+            </mat-list>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</section>
